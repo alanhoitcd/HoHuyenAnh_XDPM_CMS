@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconDarkMode" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="lblLogan" xml:space="preserve">
+    <value>Nơi sức khỏe bắt đầu, công nghệ dẫn lối</value>
+  </data>
+  <data name="tsmiFile" xml:space="preserve">
+    <value>Tệp</value>
+  </data>
+  <data name="tsmiManagement" xml:space="preserve">
+    <value>Quản Lý</value>
+  </data>
+  <data name="tsmiPatientExamination" xml:space="preserve">
+    <value>Khám Bệnh</value>
+  </data>
+  <data name="tsmiReports" xml:space="preserve">
+    <value>Báo Cáo</value>
+  </data>
+  <data name="tsmiSystem" xml:space="preserve">
+    <value>Hệ Thống</value>
+  </data>
+  <data name="tsmiHelp" xml:space="preserve">
+    <value>Hỗ Trợ</value>
+  </data>
+  <data name="tsmiManagePatient" xml:space="preserve">
+    <value>Quản Lý Bệnh Nhân</value>
+  </data>
+  <data name="tsmiManageDoctors" xml:space="preserve">
+    <value>Quản Lý Bác Sĩ</value>
+  </data>
+  <data name="tsmiManageAppointments" xml:space="preserve">
+    <value>Quản Lý Lịch Hẹn</value>
+  </data>
+  <data name="tsmiManageMedicineInventory" xml:space="preserve">
+    <value>Quản Lý Kho Thuốc</value>
+  </data>
+  <data name="tsmiLogin" xml:space="preserve">
+    <value>Đăng Nhập</value>
+  </data>
+  <data name="tsmiLogout" xml:space="preserve">
+    <value>Đăng Xuất</value>
+  </data>
+  <data name="tsmiChangePassword" xml:space="preserve">
+    <value>Đổi Mật Khẩu</value>
+  </data>
+  <data name="tsmiExit" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="tsmiAboutSoftware" xml:space="preserve">
+    <value>Về Phần Mềm</value>
+  </data>
+  <data name="tsmiUserGuide" xml:space="preserve">
+    <value>Hướng Dẫn Sử Dụng</value>
+  </data>
+  <data name="tsmiContactSupport" xml:space="preserve">
+    <value>Liên Hệ Hỗ Trợ</value>
+  </data>
+  <data name="tsmiManageExaminationHistory" xml:space="preserve">
+    <value>Quản Lý Lịch Sử Khám Bệnh</value>
+  </data>
+  <data name="tsmiManagePrescriptions" xml:space="preserve">
+    <value>Quản Lý Đơn Thuốc</value>
+  </data>
+  <data name="tsmiPatientListReport" xml:space="preserve">
+    <value>Báo Cáo Danh Sách Bệnh Nhân</value>
+  </data>
+  <data name="tsmiAppointmentScheduleReport" xml:space="preserve">
+    <value>Báo Cáo Lịch Hẹn Khám Bệnh</value>
+  </data>
+  <data name="tsmiInventoryAndMedicineRevenueReport" xml:space="preserve">
+    <value>Báo Cáo Doanh Thu Thuốc và Tồn Kho</value>
+  </data>
+  <data name="tsmiManageUserAccounts" xml:space="preserve">
+    <value>Quản Lý Tài Khoản Người Dùng</value>
+  </data>
+  <data name="tsmiViewActivityLog" xml:space="preserve">
+    <value>Xem Nhật Ký Hoạt Động</value>
+  </data>
+  <data name="tsmiBackupAndRestoreDatabase" xml:space="preserve">
+    <value>Sao Lưu và Khôi Phục Cơ Sở Dữ Liệu</value>
+  </data>
+  <data name="tabPagePatients" xml:space="preserve">
+    <value>Bệnh nhân</value>
+  </data>
+  <data name="tabPageDoctors" xml:space="preserve">
+    <value>Bác sĩ</value>
+  </data>
+  <data name="tabPageAppointments" xml:space="preserve">
+    <value>Lịch hẹn</value>
+  </data>
+  <data name="tabPageMedicineInventory" xml:space="preserve">
+    <value>Kho thuốc</value>
+  </data>
+  <data name="lblHello" xml:space="preserve">
+    <value>Chào</value>
+  </data>
+  <data name="lblLogin" xml:space="preserve">
+    <value>Đăng Nhập</value>
+  </data>
+  <data name="txtUserName" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="txtPassword" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="chkRememberPassword" xml:space="preserve">
+    <value>Ghi nhớ mật khẩu</value>
+  </data>
+  <data name="btnLogin" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="llblForgotPassword" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="llblDontHaveAnAccount" xml:space="preserve">
+    <value>Không có một tài khoản?</value>
+  </data>
+  <data name="notif_frmLogin_EnterUserAndPass" xml:space="preserve">
+    <value>Nhập tài khoản và mật khẩu</value>
+  </data>
+  <data name="notif_" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="notif_frmLogin_LoginSuccessful" xml:space="preserve">
+    <value>Đăng nhập thành công</value>
+  </data>
+  <data name="notif_frmLogin_WrongPassword" xml:space="preserve">
+    <value>Sai mật khẩu </value>
+  </data>
+  <data name="notif_frmLogin_CountTime" xml:space="preserve">
+    <value> lần</value>
+  </data>
+  <data name="notif_frmLogin_Closed" xml:space="preserve">
+    <value>Đã nhập sai mật khẩu 3 lần, phần mềm sẽ đóng lại ngay bây giờ!</value>
+  </data>
+  <data name="notif_frmLogin_Error" xml:space="preserve">
+    <value>Lỗi khi đăng nhập: </value>
+  </data>
+  <data name="notif_frmLogin_UserName" xml:space="preserve">
+    <value>Tên người dùng </value>
+  </data>
+  <data name="notif_frmLogin_NotFound" xml:space="preserve">
+    <value>không đúng, bạn có muốn tạo user mới không?</value>
+  </data>
+  <data name="lblSigup" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
+  <data name="lblUserName" xml:space="preserve">
+    <value>Tên Người Dùng</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Mật Khẩu</value>
+  </data>
+  <data name="lblConfirmPassword" xml:space="preserve">
+    <value>Xác Thực Mật Khẩu</value>
+  </data>
+  <data name="lblUsersRole" xml:space="preserve">
+    <value>Quyền Người Dùng</value>
+  </data>
+  <data name="lblEmail" xml:space="preserve">
+    <value>Thư Điện Tử</value>
+  </data>
+  <data name="lblSecurityQuestion" xml:space="preserve">
+    <value>Câu Hỏi Bảo Mật</value>
+  </data>
+  <data name="lblSecurityAnswer" xml:space="preserve">
+    <value>Câu Trả Lời </value>
+  </data>
+  <data name="txtUserName_Holder" xml:space="preserve">
+    <value>Nhập Tên Người Dùng</value>
+  </data>
+  <data name="txtPassword_Holder" xml:space="preserve">
+    <value>Nhập Mật Khẩu</value>
+  </data>
+  <data name="txtConfirmPassword_Holder" xml:space="preserve">
+    <value>Nhập Xác Thực Mật Khẩu</value>
+  </data>
+  <data name="btnSignUp" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
+  <data name="notif_frmCreateAccount_Fill" xml:space="preserve">
+    <value>Vui lòng điền vào tất cả các trường bắt buộc.</value>
+  </data>
+  <data name="notif_frmCreateAccount_Created" xml:space="preserve">
+    <value>Tạo tài khoản thành công!</value>
+  </data>
+  <data name="notif_frmCreateAccount_CreateFailed" xml:space="preserve">
+    <value>Tạo tài khoản thất bại</value>
+  </data>
+  <data name="notif_frmCreateAccount_PassMiss" xml:space="preserve">
+    <value>Xác thực mật khẩu không khớp</value>
+  </data>
+  <data name="txtEmail_Holder" xml:space="preserve">
+    <value>Nhập Email</value>
+  </data>
+  <data name="txtSecurityAnswer_Holder" xml:space="preserve">
+    <value>Nhập Câu Trả Lời</value>
+  </data>
+  <data name="img001" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="tsmiManageVisit" xml:space="preserve">
+    <value>Quản lý lượt khám</value>
+  </data>
+  <data name="tsmiDoctorListReport" xml:space="preserve">
+    <value>Báo cáo danh sách bác sĩ</value>
+  </data>
+</root>
