@@ -8,24 +8,15 @@ namespace CMS.DML
 {
     public class DoctorsDML
     {
-        /*      DoctorId INT IDENTITY(1,1) PRIMARY KEY,
-                FirstName NVARCHAR(50) NOT NULL,
-                LastName NVARCHAR(50) NOT NULL,
-                Specialty NVARCHAR(50) NOT NULL,
-                LicenseNumber NVARCHAR(20) UNIQUE NOT NULL,
-                Schedule NVARCHAR(100) NOT NULL,*/
-
         private int DoctorId;
         private string FirstName;
         private string LastName;
         private string Specialty;
         private string LicenseNumber;
         private string Schedule;
-
         public DoctorsDML()
         {
         }
-
         public DoctorsDML(int doctorId, string firstName, string lastName, string specialty, string licenseNumber, string schedule)
         {
             DoctorId1 = doctorId;
@@ -35,7 +26,6 @@ namespace CMS.DML
             LicenseNumber1 = licenseNumber;
             Schedule1 = schedule;
         }
-
         public int DoctorId1 { get => DoctorId; set => DoctorId = value; }
         public string FirstName1 { get => FirstName; set => FirstName = value; }
         public string LastName1 { get => LastName; set => LastName = value; }

@@ -218,14 +218,14 @@ END;
 go --procedure update patient by ssn(CCCD)	
 CREATE PROCEDURE updatePatientBySSN (
 	@PatientId INT,
-    @SocialSecurityNumber NVARCHAR(12), -- Tham số đầu vào là SocialSecurityNumber để xác định bệnh nhân
-    @FirstName NVARCHAR(50) = NULL,    -- Tham số đầu vào cho FirstName (cho phép giá trị NULL nếu không muốn cập nhật)
-    @LastName NVARCHAR(50) = NULL,     -- Tham số đầu vào cho LastName (cho phép giá trị NULL nếu không muốn cập nhật)
-    @DateOfBirth DATE = NULL,        -- Tham số đầu vào cho DateOfBirth (cho phép giá trị NULL nếu không muốn cập nhật)
-    @Gender NVARCHAR(6) = NULL,        -- Tham số đầu vào cho Gender (cho phép giá trị NULL nếu không muốn cập nhật)
-    @PhoneNumber NVARCHAR(15) = NULL,   -- Tham số đầu vào cho PhoneNumber (cho phép giá trị NULL nếu không muốn cập nhật)
-    @AddressPatients NVARCHAR(100) = NULL,-- Tham số đầu vào cho AddressPatients (cho phép giá trị NULL nếu không muốn cập nhật)
-    @IsEncrypted BIT = NULL           -- Tham số đầu vào cho IsEncrypted (cho phép giá trị NULL nếu không muốn cập nhật)
+    @SocialSecurityNumber NVARCHAR(12),
+    @FirstName NVARCHAR(50) = NULL,
+    @LastName NVARCHAR(50) = NULL,
+    @DateOfBirth DATE = NULL,
+    @Gender NVARCHAR(6) = NULL, 
+    @PhoneNumber NVARCHAR(15) = NULL,  
+    @AddressPatients NVARCHAR(100) = NULL,
+    @IsEncrypted BIT = NULL 
 )
 AS
 BEGIN
