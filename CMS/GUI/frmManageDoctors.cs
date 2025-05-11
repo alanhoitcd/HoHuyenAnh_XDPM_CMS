@@ -428,5 +428,47 @@ namespace CMS.GUI
             UTIL.UTIL.getDataFromDatagridviewFillTextbox(txtLicenseNumber, dgvManageDoctors, 4, e);
             UTIL.UTIL.getDataFromDatagridviewFillTextbox(txtSchedule, dgvManageDoctors, 5, e);
         }
+
+        private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 50);
+        }
+
+        private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 50);
+        }
+
+        private void cboSpecialty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Kiểm tra xem độ dài văn bản hiện tại đã đạt đến giới hạn (50 ký tự) hay chưa
+            if (textBox.Text.Length >= 50 && !char.IsControl(e.KeyChar))
+            {
+                // Nếu đã đạt giới hạn và ký tự vừa nhập không phải là phím điều khiển (ví dụ: Backspace),
+                // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
+                e.Handled = true;
+            }
+        }
+
+        private void txtLicenseNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 20);
+        }
+
+        private void txtSchedule_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 100);
+        }
+
+        private void W(object sender, EventArgs e)
+        {
+
+        }
     }
 }

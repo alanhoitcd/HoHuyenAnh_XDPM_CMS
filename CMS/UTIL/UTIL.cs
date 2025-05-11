@@ -285,5 +285,31 @@ namespace CMS.UTIL
                 comboBox.SelectedItem = dataGridView.Rows[e.RowIndex].Cells[collum].Value.ToString();
             }
         }
+
+        //hàm cho sự kiện keyPress chỉ cho nhập số
+        public static void Textbox_KeyPress_OnlyNumber(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra xem ký tự vừa nhập có phải là số hoặc các phím điều khiển đặc biệt không
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Nếu không phải số và không phải phím điều khiển, hủy bỏ sự kiện KeyPress
+                e.Handled = true;
+            }
+        }
+        //hàm cho sự kiện keyPress chỉ cho nhập giới hạn số lượng ký tự
+        public static void Textbox_KeyPress_LimitChar(object sender, KeyPressEventArgs e, int count)
+        {
+            TextBox textBox = (TextBox)sender;
+            // Kiểm tra xem độ dài văn bản hiện tại đã đạt đến giới hạn (count ký tự) hay chưa
+            if (textBox.Text.Length >= count && !char.IsControl(e.KeyChar))
+            {
+                // Nếu đã đạt giới hạn và ký tự vừa nhập không phải là phím điều khiển,
+                // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
+                e.Handled = true;
+            }
+        }
+
+
+
     }
 }

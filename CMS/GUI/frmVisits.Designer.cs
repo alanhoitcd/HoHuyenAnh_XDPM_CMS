@@ -167,6 +167,7 @@
             this.txtDiagnosis.Name = "txtDiagnosis";
             this.txtDiagnosis.Size = new System.Drawing.Size(421, 97);
             this.txtDiagnosis.TabIndex = 74;
+            this.txtDiagnosis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiagnosis_KeyPress);
             // 
             // lblPrescription
             // 
@@ -188,6 +189,7 @@
             this.txtPrescription.Name = "txtPrescription";
             this.txtPrescription.Size = new System.Drawing.Size(415, 174);
             this.txtPrescription.TabIndex = 72;
+            this.txtPrescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrescription_KeyPress);
             // 
             // groupBox1
             // 

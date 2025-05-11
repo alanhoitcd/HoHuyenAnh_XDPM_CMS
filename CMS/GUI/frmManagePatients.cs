@@ -238,51 +238,26 @@ namespace CMS.GUI
 
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-
-            // Kiểm tra xem độ dài văn bản hiện tại đã đạt đến giới hạn (5 ký tự) hay chưa
-            if (textBox.Text.Length >= 50 && !char.IsControl(e.KeyChar))
-            {
-                // Nếu đã đạt giới hạn và ký tự vừa nhập không phải là phím điều khiển (ví dụ: Backspace),
-                // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
-                e.Handled = true;
-            }
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 50);
         }
 
         private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Kiểm tra xem ký tự vừa nhập có phải là số hoặc các phím điều khiển đặc biệt (ví dụ: Backspace) hay không
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                // Nếu không phải số và không phải phím điều khiển, hủy bỏ sự kiện KeyPress
-                e.Handled = true;
-            }
+            UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 12);
         }
 
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-
-            // Kiểm tra xem độ dài văn bản hiện tại đã đạt đến giới hạn (5 ký tự) hay chưa
-            if (textBox.Text.Length >= 50 && !char.IsControl(e.KeyChar))
-            {
-                // Nếu đã đạt giới hạn và ký tự vừa nhập không phải là phím điều khiển (ví dụ: Backspace),
-                // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
-                e.Handled = true;
-            }
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 50);
         }
 
         private void txtAddressPatients_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-
-            // Kiểm tra xem độ dài văn bản hiện tại đã đạt đến giới hạn (5 ký tự) hay chưa
-            if (textBox.Text.Length >= 100 && !char.IsControl(e.KeyChar))
-            {
-                // Nếu đã đạt giới hạn và ký tự vừa nhập không phải là phím điều khiển (ví dụ: Backspace),
-                // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
-                e.Handled = true;
-            }
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 100);
         }
 
         private void btnDeletePatients_Click(object sender, EventArgs e)
@@ -512,6 +487,12 @@ namespace CMS.GUI
             {
                 UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleEng);
             }
+        }
+
+        private void txtPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 10);
         }
     }
 }

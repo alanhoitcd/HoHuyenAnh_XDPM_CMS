@@ -142,7 +142,7 @@
             this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.SelectedText = "";
             this.txtPassword.Size = new System.Drawing.Size(392, 38);
-            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabIndex = 1;
             // 
             // btnLogin
             // 
@@ -158,7 +158,7 @@
             this.btnLogin.Location = new System.Drawing.Point(9, 273);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(392, 35);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -181,7 +181,7 @@
             this.txtUserName.PlaceholderText = "User Name";
             this.txtUserName.SelectedText = "";
             this.txtUserName.Size = new System.Drawing.Size(392, 38);
-            this.txtUserName.TabIndex = 1;
+            this.txtUserName.TabIndex = 0;
             // 
             // lblLogin
             // 
@@ -191,7 +191,7 @@
             this.lblLogin.Location = new System.Drawing.Point(0, 0);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(411, 68);
-            this.lblLogin.TabIndex = 0;
+            this.lblLogin.TabIndex = 11;
             this.lblLogin.Text = "Login";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);

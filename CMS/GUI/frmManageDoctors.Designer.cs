@@ -203,6 +203,7 @@
             this.cboSpecialty.Name = "cboSpecialty";
             this.cboSpecialty.Size = new System.Drawing.Size(506, 39);
             this.cboSpecialty.TabIndex = 72;
+            this.cboSpecialty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboSpecialty_KeyPress);
             // 
             // lblLicenseNumber
             // 
@@ -223,6 +224,7 @@
             this.txtLicenseNumber.Name = "txtLicenseNumber";
             this.txtLicenseNumber.Size = new System.Drawing.Size(506, 39);
             this.txtLicenseNumber.TabIndex = 70;
+            this.txtLicenseNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseNumber_KeyPress);
             // 
             // lblSchedule
             // 
@@ -254,6 +256,7 @@
             this.txtSchedule.Name = "txtSchedule";
             this.txtSchedule.Size = new System.Drawing.Size(506, 39);
             this.txtSchedule.TabIndex = 66;
+            this.txtSchedule.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSchedule_KeyPress);
             // 
             // lblLastName
             // 
@@ -272,6 +275,8 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(559, 39);
             this.txtLastName.TabIndex = 64;
+            this.txtLastName.TextChanged += new System.EventHandler(this.W);
+            this.txtLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName_KeyPress);
             // 
             // lblFirstName
             // 
@@ -290,6 +295,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(559, 39);
             this.txtFirstName.TabIndex = 62;
+            this.txtFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFirstName_KeyPress);
             // 
             // lblDoctorId
             // 

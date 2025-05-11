@@ -333,5 +333,17 @@ namespace CMS.GUI
         {
 
         }
+
+        private void txtDiagnosis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 200);
+        }
+
+        private void txtPrescription_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //UTIL.UTIL.Textbox_KeyPress_OnlyNumber(sender, e);
+            UTIL.UTIL.Textbox_KeyPress_LimitChar(sender, e, 500);
+        }
     }
 }
