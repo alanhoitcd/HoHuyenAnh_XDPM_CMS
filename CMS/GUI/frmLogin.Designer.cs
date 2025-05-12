@@ -33,7 +33,6 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2CircleButton();
             this.llblDontHaveAnAccount = new System.Windows.Forms.LinkLabel();
             this.llblForgotPassword = new System.Windows.Forms.LinkLabel();
-            this.chkRememberPassword = new System.Windows.Forms.CheckBox();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.txtUserName = new Guna.UI2.WinForms.Guna2TextBox();
@@ -57,7 +56,6 @@
             this.panel.Controls.Add(this.btnClose);
             this.panel.Controls.Add(this.llblDontHaveAnAccount);
             this.panel.Controls.Add(this.llblForgotPassword);
-            this.panel.Controls.Add(this.chkRememberPassword);
             this.panel.Controls.Add(this.txtPassword);
             this.panel.Controls.Add(this.btnLogin);
             this.panel.Controls.Add(this.txtUserName);
@@ -92,35 +90,24 @@
             // 
             this.llblDontHaveAnAccount.AutoSize = true;
             this.llblDontHaveAnAccount.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblDontHaveAnAccount.Location = new System.Drawing.Point(208, 333);
+            this.llblDontHaveAnAccount.Location = new System.Drawing.Point(208, 320);
             this.llblDontHaveAnAccount.Name = "llblDontHaveAnAccount";
             this.llblDontHaveAnAccount.Size = new System.Drawing.Size(175, 19);
             this.llblDontHaveAnAccount.TabIndex = 8;
             this.llblDontHaveAnAccount.TabStop = true;
             this.llblDontHaveAnAccount.Text = "Don\'t have an account?";
-            this.llblDontHaveAnAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.llblDontHaveAnAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblDontHaveAnAccount_LinkClicked);
             // 
             // llblForgotPassword
             // 
             this.llblForgotPassword.AutoSize = true;
             this.llblForgotPassword.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblForgotPassword.Location = new System.Drawing.Point(23, 333);
+            this.llblForgotPassword.Location = new System.Drawing.Point(23, 320);
             this.llblForgotPassword.Name = "llblForgotPassword";
             this.llblForgotPassword.Size = new System.Drawing.Size(138, 19);
             this.llblForgotPassword.TabIndex = 6;
             this.llblForgotPassword.TabStop = true;
             this.llblForgotPassword.Text = "Forgot Password?";
-            // 
-            // chkRememberPassword
-            // 
-            this.chkRememberPassword.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRememberPassword.Location = new System.Drawing.Point(9, 225);
-            this.chkRememberPassword.Name = "chkRememberPassword";
-            this.chkRememberPassword.Size = new System.Drawing.Size(392, 23);
-            this.chkRememberPassword.TabIndex = 5;
-            this.chkRememberPassword.Text = "Remember Password";
-            this.chkRememberPassword.UseVisualStyleBackColor = true;
-            this.chkRememberPassword.CheckedChanged += new System.EventHandler(this.chkRememberPassword_CheckedChanged);
             // 
             // txtPassword
             // 
@@ -135,7 +122,7 @@
             this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPassword.Location = new System.Drawing.Point(9, 162);
+            this.txtPassword.Location = new System.Drawing.Point(9, 169);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -155,7 +142,7 @@
             this.btnLogin.FillColor = System.Drawing.Color.RoyalBlue;
             this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(9, 273);
+            this.btnLogin.Location = new System.Drawing.Point(9, 251);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(392, 35);
             this.btnLogin.TabIndex = 2;
@@ -175,7 +162,7 @@
             this.txtUserName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txtUserName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUserName.Location = new System.Drawing.Point(9, 99);
+            this.txtUserName.Location = new System.Drawing.Point(9, 102);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PlaceholderText = "User Name";
@@ -194,7 +181,6 @@
             this.lblLogin.TabIndex = 11;
             this.lblLogin.Text = "Login";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLogin.Click += new System.EventHandler(this.lblLogin_Click);
             // 
             // frmLogin
             // 
@@ -222,7 +208,6 @@
         private Guna.UI2.WinForms.Guna2CircleButton btnClose;
         private System.Windows.Forms.LinkLabel llblDontHaveAnAccount;
         private System.Windows.Forms.LinkLabel llblForgotPassword;
-        private System.Windows.Forms.CheckBox chkRememberPassword;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private Guna.UI2.WinForms.Guna2TextBox txtUserName;

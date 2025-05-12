@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Common;
+using System.Drawing;
+using System.IO;
+using Guna.UI2.WinForms;
 
 namespace CMS.UTIL
 {
     public class UTIL
     {
+        public static string tmpPass { set; get; }
         //hàm kiểm tra chuổi có trong 1 cột của DataTable chưa
         public static Boolean checkModelString(string findString, string collumFind, DataTable dataTableCheck /*dataTableCheck: hàm selectAll*/)
         {   //hàm kiểm tra user có trong database chưa
@@ -307,6 +311,37 @@ namespace CMS.UTIL
                 // thì hủy bỏ sự kiện KeyPress, ngăn không cho ký tự được nhập vào TextBox.
                 e.Handled = true;
             }
+        }
+
+        //Hàm chèn ảnh vào control
+        public static void fillImgToControl(object control, byte[] resourceBytes)
+        {
+            using (var ms = new MemoryStream(resourceBytes))
+            {
+                var img = new Bitmap(ms);
+                switch (control)
+                {
+                    case System.Windows.Forms.Button btn: btn.Image = img; break;
+                    case Guna.UI2.WinForms.Guna2Button gBtn: gBtn.Image = img; break;
+                    case Guna.UI2.WinForms.Guna2CircleButton cBtn: cBtn.Image = img; break;
+                    case System.Windows.Forms.ToolStripMenuItem menu: menu.Image = img; break;
+                    case System.Windows.Forms.PictureBox pb: pb.Image = img; break;
+                    default: throw new ArgumentException(LanguageManager.GetString("ControlNotSupported"));
+                }
+            }
+        }
+        //Hàm thiết lập ngôn ngữ
+        public static void SetFormLanguage()
+        {
+            LanguageManager.SetLanguage(Language.Lang == "vn" ? "vi-VN" : "en-US");
+        }
+
+        // Hàm hiển thị MessageBox đa ngôn ngữ
+        public static DialogResult ShowMessage(string messageKey, string titleKey, MessageBoxButtons buttons, MessageBoxIcon icon)
+        {
+            string message = LanguageManager.GetString(messageKey);
+            string title = LanguageManager.GetString(titleKey);
+            return MessageBox.Show(message, title, buttons, icon);
         }
 
 

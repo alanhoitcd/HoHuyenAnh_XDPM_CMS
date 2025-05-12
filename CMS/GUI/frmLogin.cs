@@ -1,6 +1,7 @@
 ﻿using CMS.BLL;
 using CMS.GUI;
 using CMS.UTIL;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,100 +18,25 @@ namespace CMS.VIEW
 {
     public partial class frmLogin : Form
     {
-        private readonly UsersBLL _usersBLL = new UsersBLL();
         private static int countSaiPass = 0;
-        private string tmpPass = "";
-        private string tmpAcc = "";
-
-        private void UpdateLanguage()
+        private void btnLogin_Click_() //CODE CHO NÚT ĐĂNG NHẬP
         {
-            //Đổi ngôn ngữ label Chào
-            lblLogin.Text = LanguageManager.GetString("lblLogin");
-            txtUserName.PlaceholderText = LanguageManager.GetString("txtUserName");
-            txtPassword.PlaceholderText = LanguageManager.GetString("txtPassword");
-            chkRememberPassword.Text = LanguageManager.GetString("chkRememberPassword");
-            btnLogin.Text = LanguageManager.GetString("btnLogin");
-            llblForgotPassword.Text = LanguageManager.GetString("llblForgotPassword");
-            llblDontHaveAnAccount.Text = LanguageManager.GetString("llblDontHaveAnAccount");
-
-        }
-        void frmLogin_Load_()
-        {
-            using (MemoryStream ms = new MemoryStream(Properties.Resources.iconClose))
+            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtPassword.Text))//kiểm tra null
             {
-                btnClose.Image = Image.FromStream(ms);
-            }
-            using (MemoryStream ms = new MemoryStream(Properties.Resources.imgfrmLoginForm))
-            {
-                ptbLogin.Image = Image.FromStream(ms);
-            }
-
-            if (UTIL.Language.Lang.Equals("vn"))
-            {
-                //Gán giá trị mã ngôn ngữ mới cho Lang. Setter sẽ kiểm tra giá trị
-                UTIL.LanguageManager.SetLanguage("vi-VN");
-            }
-            else
-            {
-                //Gán giá trị mã ngôn ngữ mới cho Lang.// Setter sẽ kiểm tra giá trị
-                UTIL.LanguageManager.SetLanguage("en-US");
-            }
-            UpdateLanguage();
-        }
-        public frmLogin()
-        {
-            InitializeComponent();
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            frmLogin_Load_();
-
-
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void lblLogin_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmCreateAccount f = new frmCreateAccount();
-            f.ShowDialog();
-
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtPassword.Text))
-            {
-                string frmLoginCap_Enter = LanguageManager.GetString("notif_frmLogin_EnterUserAndPass");
-                string notification = LanguageManager.GetString("notif_");
-                MessageBox.Show(frmLoginCap_Enter, notification);
+                UTIL.UTIL.ShowMessage("notif_frmLogin_EnterUserAndPass", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
-                UsersBLL NguoiDung_BLL_ = new UsersBLL();
-                if (NguoiDung_BLL_.checkUser(txtUserName.Text))//kiểm tra id có trong database chưa
+                UsersBLL _usersBLL = new UsersBLL();
+                if (_usersBLL.checkUser(txtUserName.Text))//kiểm tra id có trong database chưa
                 {
                     try
                     {
-                        bool success = _usersBLL.LoginUser(txtUserName.Text, txtPassword.Text);
-                        if (success)
+                        if (_usersBLL.LoginUser(txtUserName.Text, txtPassword.Text))
                         {
-                            string frmLoginCap_LoginSuccessful = LanguageManager.GetString("notif_frmLogin_LoginSuccessful");
-                            string notification = LanguageManager.GetString("notif_");
-                            MessageBox.Show(frmLoginCap_LoginSuccessful, notification);
+                            UTIL.UTIL.ShowMessage("notif_frmLogin_LoginSuccessful", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
-                            countSaiPass = 0;
-
                         }
                         else
                         {
@@ -119,14 +45,13 @@ namespace CMS.VIEW
                                 string frmLoginCap_WrongPassword = LanguageManager.GetString("notif_frmLogin_WrongPassword");
                                 string frmLoginCap_CountTime = LanguageManager.GetString("notif_frmLogin_CountTime");
                                 string notification = LanguageManager.GetString("notif_");
-                                MessageBox.Show(frmLoginCap_WrongPassword + (countSaiPass + 1) + frmLoginCap_CountTime, notification);
+                                MessageBox.Show(frmLoginCap_WrongPassword + (countSaiPass + 1) + frmLoginCap_CountTime, notification, MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 countSaiPass++;
                                 txtPassword.ResetText();
                                 if (countSaiPass == 3)
                                 {
                                     txtPassword.Enabled = false;
-                                    string noticeClosed = LanguageManager.GetString("notif_frmLogin_Closed");
-                                    MessageBox.Show(noticeClosed, notification);
+                                    UTIL.UTIL.ShowMessage("notif_frmLogin_Closed", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.DialogResult = DialogResult.Cancel;
                                     Application.Exit();
                                 }
@@ -136,19 +61,17 @@ namespace CMS.VIEW
                     }
                     catch (Exception ex)
                     {
-                        string frmLoginCap_Error = LanguageManager.GetString("notif_frmLogin_Error");
-                        MessageBox.Show(frmLoginCap_Error + ex.Message);
+                        UTIL.UTIL.ShowMessage("notif_frmLogin_Error" + ex.Message, "notif_", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
                     txtUserName.ResetText();
                     txtPassword.ResetText();
-                    string frmLoginCap_UserName = LanguageManager.GetString("notif_frmLogin_UserName");
-                    string frmLoginCap_noticeNotFound = LanguageManager.GetString("notif_frmLogin_NotFound");
-                    string notification = LanguageManager.GetString("notif_");
-
-                    if (MessageBox.Show(frmLoginCap_UserName + txtUserName.Text + frmLoginCap_noticeNotFound, notification, MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                    string notif_frmLogin_UserName = LanguageManager.GetString("notif_frmLogin_UserName");
+                    string notif_frmLogin_NotFound = LanguageManager.GetString("notif_frmLogin_NotFound");
+                    string notif_ = LanguageManager.GetString("notif_");
+                    if (MessageBox.Show($"{notif_frmLogin_UserName} {txtUserName.Text.Trim()}{notif_frmLogin_NotFound}", notif_, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         this.Hide();
                         frmCreateAccount frm = new frmCreateAccount();
@@ -157,9 +80,52 @@ namespace CMS.VIEW
                 }
             }
         }
-
-        private void chkRememberPassword_CheckedChanged(object sender, EventArgs e)
+        private void UpdateLanguage()// CẬP NHẬT NGÔN NGỮ CHO CÁC CONTROL
         {
+            lblLogin.Text = LanguageManager.GetString("lblLogin");
+            txtUserName.PlaceholderText = LanguageManager.GetString("txtUserName");
+            txtPassword.PlaceholderText = LanguageManager.GetString("txtPassword");
+            btnLogin.Text = LanguageManager.GetString("btnLogin");
+            llblForgotPassword.Text = LanguageManager.GetString("llblForgotPassword");
+            llblDontHaveAnAccount.Text = LanguageManager.GetString("llblDontHaveAnAccount");
+
+        }
+        void frmLogin_Load_()//HÀM CHO SỰ HIỆN FORM LOAD
+        {
+            UTIL.UTIL.fillImgToControl(btnClose, Properties.Resources.iconClose);//Thiết lập ảnh cho nút thoát
+            UTIL.UTIL.fillImgToControl(ptbLogin, Properties.Resources.imgfrmLoginForm);//Thiết lập ảnh cho picturebox
+            UTIL.UTIL.SetFormLanguage();
+            UpdateLanguage();
+            txtUserName.Text = "admin";
+            txtPassword.Text = "admin";
+        }
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            frmLogin_Load_();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public static void thongBao()
+        {
+
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            btnLogin_Click_();
+        }
+
+        private void llblDontHaveAnAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmCreateAccount f = new frmCreateAccount();
+            f.ShowDialog();
         }
     }
 }

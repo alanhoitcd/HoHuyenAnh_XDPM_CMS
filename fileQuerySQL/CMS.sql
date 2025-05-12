@@ -19,6 +19,20 @@ CREATE TABLE Users (
     CreatedDate DATETIME NOT NULL DEFAULT GETDATE()
 );
 
+
+------------------------------------------------------------------------------
+
+go --procedure check    Users    by    Username
+create procedure checkUserByUserName
+	@Username VARCHAR(50)
+as begin
+	select count(Username) from Users where Username = @Username
+end
+
+
+
+
+
 -- Tạo bảng Patients
 CREATE TABLE Patients (
     PatientId INT IDENTITY(1,1) PRIMARY KEY,

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CMS.DML;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CMS.DAL
 {
@@ -25,25 +26,24 @@ namespace CMS.DAL
         UpdateAppointment(): Cập nhật thông tin lịch hẹn trong database.
         DeletePatient(): Xóa bệnh nhân khỏi database.
         GetAllAppointments(): Lấy toàn bộ danh sách lịch hẹn từ database để trả về dưới dạng danh sách Model.*/
-
-        public int checkUser(string ten_nguoi_dung)
+        public int checkUser(string Username)
         {
             try
             {
-                using (SqlConnection c = new SqlConnection(DAL.sqlDatabase.getConnectString()))
+                using (SqlConnection conn = new SqlConnection(DAL.sqlDatabase.getConnectString()))
                 {
-                    c.Open();
-                    string query = "select count(Username) from Users where Username = @Username";
-                    using (SqlCommand cmd = new SqlCommand(query, c))
+                    using (SqlCommand cmd = new SqlCommand("checkUserByUserName", conn))
                     {
-                        cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = ten_nguoi_dung; // Sửa kiểu dữ liệu
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = Username; // Sửa kiểu dữ liệu
+                        conn.Open();
                         return (int)cmd.ExecuteScalar(); // Trả về kết quả trực tiếp
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi class Users_DAL function checkUser: " + ex.Message);
+                Console.WriteLine("Error class Users_DAL function checkUser: " + ex.Message);
                 return 0;
             }
         }
