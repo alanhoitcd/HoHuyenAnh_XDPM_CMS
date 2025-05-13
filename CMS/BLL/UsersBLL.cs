@@ -15,19 +15,19 @@ namespace CMS.BLL
     public class UsersBLL
     {
         private readonly UsersDAL _usersDAL = new UsersDAL();
-        public bool checkUser(string ten_nguoi_dung)
+        public bool selectCountUserByUserName(UsersDML dml)
         {
-            return _usersDAL.checkUser(ten_nguoi_dung) > 0;
+            return _usersDAL.selectCountUserByUserName(dml.Username1) > 0;
         }
 
-        public bool LoginUser(string username, string password)
+        public bool LoginUser(UsersDML dml)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(dml.Username1) || string.IsNullOrEmpty(dml.PasswordHash1))
             {
                 throw new ArgumentException("Username and password are required.");
             }
 
-            UsersDML user = _usersDAL.GetUserByUsername(username);
+            UsersDML user = _usersDAL.selectUserByUserName(dml.Username1);
             if (user == null)
             {
                 return false; // Người dùng không tồn tại
@@ -38,7 +38,7 @@ namespace CMS.BLL
                 throw new Exception("Account is not active.");
             }
 
-            bool isPasswordValid = PasswordHelper.VerifyPassword(password, user.PasswordHash1);
+            bool isPasswordValid = PasswordHelper.VerifyPassword(dml.PasswordHash1, user.PasswordHash1);
             if (!isPasswordValid)
             {
                 return false; // Mật khẩu sai
@@ -90,7 +90,7 @@ namespace CMS.BLL
             }
 
             // Kiểm tra xem username đã tồn tại chưa
-            if (_usersDAL.GetUserByUsername(t.Username1) != null)
+            if (_usersDAL.selectUserByUserName(t.Username1) != null)
             {
                 throw new ArgumentException("Username already exists.");
             }

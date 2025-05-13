@@ -1,4 +1,5 @@
 ﻿using CMS.BLL;
+using CMS.DML;
 using CMS.GUI;
 using CMS.UTIL;
 using Guna.UI2.WinForms;
@@ -18,7 +19,28 @@ namespace CMS.VIEW
 {
     public partial class frmLogin : Form
     {
+        //KHAI BÁO BIẾN TOÀN CỤC
         private static int countSaiPass = 0;
+        //CÁC HÀM CHO FORM
+        private void UpdateLanguage()// CẬP NHẬT NGÔN NGỮ CHO CÁC CONTROL
+        {
+            lblLogin.Text = LanguageManager.GetString("lblLogin");
+            txtUserName.PlaceholderText = LanguageManager.GetString("txtUserName");
+            txtPassword.PlaceholderText = LanguageManager.GetString("txtPassword");
+            btnLogin.Text = LanguageManager.GetString("btnLogin");
+            llblForgotPassword.Text = LanguageManager.GetString("llblForgotPassword");
+            llblDontHaveAnAccount.Text = LanguageManager.GetString("llblDontHaveAnAccount");
+
+        }
+        void frmLogin_Load_()//HÀM CHO SỰ HIỆN FORM LOAD
+        {
+            UTIL.UTIL.fillImgToControl(btnClose, Properties.Resources.iconClose);//Thiết lập ảnh cho nút thoát
+            UTIL.UTIL.fillImgToControl(ptbLogin, Properties.Resources.imgfrmLoginForm);//Thiết lập ảnh cho picturebox
+            UTIL.UTIL.SetFormLanguage();
+            UpdateLanguage();
+            txtUserName.Text = "admin";
+            txtPassword.Text = "admin";
+        }
         private void btnLogin_Click_() //CODE CHO NÚT ĐĂNG NHẬP
         {
             if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtPassword.Text))//kiểm tra null
@@ -28,12 +50,13 @@ namespace CMS.VIEW
             }
             else
             {
-                UsersBLL _usersBLL = new UsersBLL();
-                if (_usersBLL.checkUser(txtUserName.Text))//kiểm tra id có trong database chưa
+                UsersBLL bll = new UsersBLL();
+                UsersDML dml = new UsersDML() { Username1 = txtUserName.Text.Trim(), PasswordHash1 = txtPassword.Text.Trim() };
+                if (bll.selectCountUserByUserName(dml))//kiểm tra id có trong database chưa
                 {
                     try
                     {
-                        if (_usersBLL.LoginUser(txtUserName.Text, txtPassword.Text))
+                        if (bll.LoginUser(dml))
                         {
                             UTIL.UTIL.ShowMessage("notif_frmLogin_LoginSuccessful", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.DialogResult = DialogResult.OK;
@@ -80,25 +103,7 @@ namespace CMS.VIEW
                 }
             }
         }
-        private void UpdateLanguage()// CẬP NHẬT NGÔN NGỮ CHO CÁC CONTROL
-        {
-            lblLogin.Text = LanguageManager.GetString("lblLogin");
-            txtUserName.PlaceholderText = LanguageManager.GetString("txtUserName");
-            txtPassword.PlaceholderText = LanguageManager.GetString("txtPassword");
-            btnLogin.Text = LanguageManager.GetString("btnLogin");
-            llblForgotPassword.Text = LanguageManager.GetString("llblForgotPassword");
-            llblDontHaveAnAccount.Text = LanguageManager.GetString("llblDontHaveAnAccount");
-
-        }
-        void frmLogin_Load_()//HÀM CHO SỰ HIỆN FORM LOAD
-        {
-            UTIL.UTIL.fillImgToControl(btnClose, Properties.Resources.iconClose);//Thiết lập ảnh cho nút thoát
-            UTIL.UTIL.fillImgToControl(ptbLogin, Properties.Resources.imgfrmLoginForm);//Thiết lập ảnh cho picturebox
-            UTIL.UTIL.SetFormLanguage();
-            UpdateLanguage();
-            txtUserName.Text = "admin";
-            txtPassword.Text = "admin";
-        }
+        /*****************************************************************************************/
         public frmLogin()
         {
             InitializeComponent();
