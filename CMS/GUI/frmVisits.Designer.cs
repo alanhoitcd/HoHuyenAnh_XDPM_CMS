@@ -120,6 +120,7 @@
             // 
             // panelBody
             // 
+            this.panelBody.BackColor = System.Drawing.Color.Transparent;
             this.panelBody.Controls.Add(this.grbMedicalConsultation);
             this.panelBody.Controls.Add(this.groupBox1);
             this.panelBody.Controls.Add(this.grbDoctor);
@@ -463,6 +464,7 @@
             // 
             // pnlFoot
             // 
+            this.pnlFoot.BackColor = System.Drawing.Color.Transparent;
             this.pnlFoot.Controls.Add(this.dgvManageVisit);
             this.pnlFoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFoot.Location = new System.Drawing.Point(0, 379);
@@ -489,6 +491,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1593, 847);
             this.Controls.Add(this.pnlFoot);
             this.Controls.Add(this.panelBody);

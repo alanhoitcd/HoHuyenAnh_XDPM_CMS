@@ -32,8 +32,14 @@ namespace CMS.GUI
             {
                 btnClose.Image = Image.FromStream(ms);
             }
+            //chèn ảnh cho form
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.img003))
+            {
+                this.BackgroundImage = Image.FromStream(ms);
+            }
+            // Làm mờ ảnh nền
+            this.BackgroundImage = UTIL.UTIL.MakeImageTransparent(this.BackgroundImage as Bitmap, 0.3f); // 0.3f là độ mờ (0.0f - 1.0f)
             dtpVisitDate.Value = DateTime.Now;
-
             //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
             if (UTIL.Language.Lang.Equals("vn"))
             {
@@ -182,7 +188,7 @@ namespace CMS.GUI
                 MessageBox.Show("Không có \"" + txtVisitID.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        
+
         //==========================================================================================
         public frmVisits(TabPage parentTab, TabControl tabControl)
         {

@@ -111,6 +111,7 @@
             // 
             // panelBody
             // 
+            this.panelBody.BackColor = System.Drawing.Color.Transparent;
             this.panelBody.Controls.Add(this.btnReload);
             this.panelBody.Controls.Add(this.txtFindText);
             this.panelBody.Controls.Add(this.cboKindFind);
@@ -405,6 +406,7 @@
             // 
             // panelFoot
             // 
+            this.panelFoot.BackColor = System.Drawing.Color.Transparent;
             this.panelFoot.Controls.Add(this.dgvManagePatients);
             this.panelFoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFoot.Location = new System.Drawing.Point(0, 338);
@@ -433,6 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1593, 847);
             this.Controls.Add(this.panelFoot);
             this.Controls.Add(this.panelBody);

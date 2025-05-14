@@ -11,6 +11,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.IO;
 using Guna.UI2.WinForms;
+using System.Drawing.Imaging;
 
 namespace CMS.UTIL
 {
@@ -343,7 +344,30 @@ namespace CMS.UTIL
             string title = LanguageManager.GetString(titleKey);
             return MessageBox.Show(message, title, buttons, icon);
         }
+        //Hàm làm mở ảnh nền
+        public static Bitmap MakeImageTransparent(Bitmap originalImage, float opacity)
+        {
+            // Tạo một Bitmap mới với cùng kích thước
+            Bitmap blurredImage = new Bitmap(originalImage.Width, originalImage.Height);
 
+            using (Graphics g = Graphics.FromImage(blurredImage))
+            {
+                // Tạo một ColorMatrix để điều chỉnh độ trong suốt
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.Matrix33 = opacity; // Độ trong suốt (0.0f = hoàn toàn trong suốt, 1.0f = không trong suốt)
+
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+                // Vẽ ảnh gốc lên ảnh mới với độ trong suốt
+                g.DrawImage(originalImage,
+                    new Rectangle(0, 0, blurredImage.Width, blurredImage.Height),
+                    0, 0, originalImage.Width, originalImage.Height,
+                    GraphicsUnit.Pixel, attributes);
+            }
+
+            return blurredImage;
+        }
 
 
     }

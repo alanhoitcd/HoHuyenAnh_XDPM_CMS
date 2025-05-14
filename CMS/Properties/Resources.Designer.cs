@@ -61,6 +61,15 @@ namespace CMS.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Added.
+        /// </summary>
+        internal static string Added {
+            get {
+                return ResourceManager.GetString("Added", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string btnLogin {
@@ -84,6 +93,69 @@ namespace CMS.Properties {
         internal static string chkRememberPassword {
             get {
                 return ResourceManager.GetString("chkRememberPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted.
+        /// </summary>
+        internal static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor code must be numeric.
+        /// </summary>
+        internal static string Doctor_code_must_be_numeric {
+            get {
+                return ResourceManager.GetString("Doctor code must be numeric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor ID not found.
+        /// </summary>
+        internal static string Doctor_ID_not_found {
+            get {
+                return ResourceManager.GetString("Doctor ID not found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edited.
+        /// </summary>
+        internal static string Edited {
+            get {
+                return ResourceManager.GetString("Edited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the keyword you want to search.
+        /// </summary>
+        internal static string Enter_the_keyword_you_want_to_search {
+            get {
+                return ResourceManager.GetString("Enter the keyword you want to search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name, last name, License Number and Schedule is not null.
+        /// </summary>
+        internal static string First_name__last_name__License_Number_and_Schedule_is_not_null {
+            get {
+                return ResourceManager.GetString("First name, last name, License Number and Schedule is not null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name, last name and social security number is not null.
+        /// </summary>
+        internal static string First_name__last_name_and_social_security_number_is_not_null {
+            get {
+                return ResourceManager.GetString("First name, last name and social security number is not null", resourceCulture);
             }
         }
         
@@ -360,6 +432,26 @@ namespace CMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] img002 {
+            get {
+                object obj = ResourceManager.GetObject("img002", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] img003 {
+            get {
+                object obj = ResourceManager.GetObject("img003", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] imgfrmCreateAccount {
             get {
                 object obj = ResourceManager.GetObject("imgfrmCreateAccount", resourceCulture);
@@ -374,6 +466,15 @@ namespace CMS.Properties {
             get {
                 object obj = ResourceManager.GetObject("imgfrmLoginForm", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s available.
+        /// </summary>
+        internal static string It_s_available {
+            get {
+                return ResourceManager.GetString("It\'s available", resourceCulture);
             }
         }
         
@@ -477,6 +578,15 @@ namespace CMS.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Linked, cannot be removed.
+        /// </summary>
+        internal static string Linked__cannot_be_removed {
+            get {
+                return ResourceManager.GetString("Linked, cannot be removed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t have an account?.
         /// </summary>
         internal static string llblDontHaveAnAccount {
@@ -491,6 +601,42 @@ namespace CMS.Properties {
         internal static string llblForgotPassword {
             get {
                 return ResourceManager.GetString("llblForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No ID yet.
+        /// </summary>
+        internal static string No_ID_yet {
+            get {
+                return ResourceManager.GetString("No ID yet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No patient ID.
+        /// </summary>
+        internal static string No_patient_ID {
+            get {
+                return ResourceManager.GetString("No patient ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No patients yet.
+        /// </summary>
+        internal static string No_patients_yet {
+            get {
+                return ResourceManager.GetString("No patients yet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found.
+        /// </summary>
+        internal static string Not_found {
+            get {
+                return ResourceManager.GetString("Not found", resourceCulture);
             }
         }
         
@@ -608,6 +754,24 @@ namespace CMS.Properties {
         internal static string notif_frmLogin_WrongPassword {
             get {
                 return ResourceManager.GetString("notif_frmLogin_WrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient ID not found.
+        /// </summary>
+        internal static string Patient_ID_not_found {
+            get {
+                return ResourceManager.GetString("Patient ID not found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a line to edit.
+        /// </summary>
+        internal static string Select_a_line_to_edit {
+            get {
+                return ResourceManager.GetString("Select a line to edit", resourceCulture);
             }
         }
         

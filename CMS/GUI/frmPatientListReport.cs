@@ -48,7 +48,7 @@ namespace CMS.GUI
                     }
                     else
                     {
-                        MessageBox.Show($"Có {dataTable.Rows.Count} dòng dữ liệu.");
+
                     }
 
                     // Cấu hình ReportViewer

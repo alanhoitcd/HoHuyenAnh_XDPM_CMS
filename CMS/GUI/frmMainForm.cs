@@ -68,6 +68,7 @@ namespace CMS
             tsmiAppointmentScheduleReport.Text = LanguageManager.GetString("tsmiAppointmentScheduleReport");
             tsmiInventoryAndMedicineRevenueReport.Text = LanguageManager.GetString("tsmiInventoryAndMedicineRevenueReport");
             tsmiDoctorListReport.Text = LanguageManager.GetString("tsmiDoctorListReport");
+            tsmiPatientListReport.Text = LanguageManager.GetString("tsmiPatientListReport");
 
             //Đổi ngôn ngữ các toolstripmenu item of tsmiSystem
             tsmiSystem.Text = LanguageManager.GetString("tsmiSystem");

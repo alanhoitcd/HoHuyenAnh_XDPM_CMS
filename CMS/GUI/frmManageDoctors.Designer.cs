@@ -106,6 +106,7 @@
             // 
             // panelFoot
             // 
+            this.panelFoot.BackColor = System.Drawing.Color.Transparent;
             this.panelFoot.Controls.Add(this.dgvManageDoctors);
             this.panelFoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFoot.Location = new System.Drawing.Point(0, 60);
@@ -131,6 +132,7 @@
             // 
             // panelBody
             // 
+            this.panelBody.BackColor = System.Drawing.Color.Transparent;
             this.panelBody.Controls.Add(this.txtFindText);
             this.panelBody.Controls.Add(this.cboKindFind);
             this.panelBody.Controls.Add(this.btnFind);
@@ -385,6 +387,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1593, 847);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panelBody);

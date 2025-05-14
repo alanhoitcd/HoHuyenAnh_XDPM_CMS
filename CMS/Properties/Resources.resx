@@ -406,4 +406,58 @@
   <data name="tsmiDoctorListReport" xml:space="preserve">
     <value>Doctor List Report</value>
   </data>
+  <data name="First name, last name, License Number and Schedule is not null" xml:space="preserve">
+    <value>First name, last name, License Number and Schedule is not null</value>
+  </data>
+  <data name="Added" xml:space="preserve">
+    <value>Added</value>
+  </data>
+  <data name="Edited" xml:space="preserve">
+    <value>Edited</value>
+  </data>
+  <data name="No ID yet" xml:space="preserve">
+    <value>No ID yet</value>
+  </data>
+  <data name="Select a line to edit" xml:space="preserve">
+    <value>Select a line to edit</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="Linked, cannot be removed" xml:space="preserve">
+    <value>Linked, cannot be removed</value>
+  </data>
+  <data name="Doctor ID not found" xml:space="preserve">
+    <value>Doctor ID not found</value>
+  </data>
+  <data name="Enter the keyword you want to search" xml:space="preserve">
+    <value>Enter the keyword you want to search</value>
+  </data>
+  <data name="Doctor code must be numeric" xml:space="preserve">
+    <value>Doctor code must be numeric</value>
+  </data>
+  <data name="Not found" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="It's available" xml:space="preserve">
+    <value>It's available</value>
+  </data>
+  <data name="First name, last name and social security number is not null" xml:space="preserve">
+    <value>First name, last name and social security number is not null</value>
+  </data>
+  <data name="No patients yet" xml:space="preserve">
+    <value>No patients yet</value>
+  </data>
+  <data name="No patient ID" xml:space="preserve">
+    <value>No patient ID</value>
+  </data>
+  <data name="Patient ID not found" xml:space="preserve">
+    <value>Patient ID not found</value>
+  </data>
+  <data name="img002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IMG\img002.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="img003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IMG\img003.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

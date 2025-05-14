@@ -247,6 +247,8 @@
     <Content Include="IMG\iconVietNam.png" />
     <Content Include="IMG\iconViewActivityLog.png" />
     <Content Include="IMG\img001.jpg" />
+    <Content Include="IMG\img002.jpg" />
+    <Content Include="IMG\img003.jpg" />
     <Content Include="IMG\imgfrmCreateAccount.jpg" />
     <Content Include="IMG\imgfrmLoginForm.jpg" />
     <Content Include="IMG\logo.png" />

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,66 +24,18 @@ namespace CMS.GUI
         string[] headTitleVN = { "Mã Bác Sĩ", "Tên", "Họ", "Chuyên Khoa", "Số Giấy Phép", "Lịch Làm Việc", };
         string[] headTitleEng = { "Doctor ID", "First Name", "Last Name", "Specialty", "LicenseNumber", "Schedule" };
         string[] cboSpecialtyEng = {
-                        "General Internal Medicine",
-                        "General Surgery",
-                        "Pediatrics",
-                        "Obstetrics and Gynecology",
-                        "Cardiology",
-                        "Neurology",
-                        "Pulmonology",
-                        "Gastroenterology",
-                        "Nephrology and Urology",
-                        "Hematology and Blood Transfusion",
-                        "Oncology",
-                        "Dermatology",
-                        "Otorhinolaryngology (ENT)",
-                        "Ophthalmology",
-                        "Odonto-Stomatology",
-                        "Traditional Medicine",
-                        "Physical Therapy and Rehabilitation",
-                        "Psychiatry",
-                        "Anesthesiology and Intensive Care",
-                        "Medical Imaging",
-                        "Laboratory Medicine",
-                        "Nuclear Medicine",
-                        "Pathology",
-                        "Public Health",
-                        "Preventive Medicine",
-                        "Nutrition",
-                        "Geriatrics",
-                        "Pharmacy"
-                    };
-
+         "General Internal Medicine", "General Surgery","Pediatrics","Obstetrics and Gynecology","Cardiology",
+        "Neurology","Pulmonology","Gastroenterology","Nephrology and Urology","Hematology and Blood Transfusion",
+        "Oncology","Dermatology","Otorhinolaryngology (ENT)","Ophthalmology","Odonto-Stomatology","Traditional Medicine",
+         "Physical Therapy and Rehabilitation",
+        "Psychiatry","Anesthesiology and Intensive Care","Medical Imaging","Laboratory Medicine","Nuclear Medicine",
+        "Pathology","Public Health","Preventive Medicine","Nutrition","Geriatrics","Pharmacy"};
         string[] cboSpecialtyVN = {
-                        "Nội tổng quát",
-                        "Ngoại tổng quát",
-                        "Nhi khoa",
-                        "Sản phụ khoa",
-                        "Tim mạch",
-                        "Thần kinh",
-                        "Hô hấp",
-                        "Tiêu hóa",
-                        "Thận - Tiết niệu",
-                        "Huyết học - Truyền máu",
-                        "Ung bướu",
-                        "Da liễu",
-                        "Tai - Mũi - Họng",
-                        "Mắt",
-                        "Răng - Hàm - Mặt",
-                        "Y học cổ truyền",
-                        "Vật lý trị liệu - Phục hồi chức năng",
-                        "Tâm thần",
-                        "Gây mê hồi sức",
-                        "Chẩn đoán hình ảnh",
-                        "Xét nghiệm",
-                        "Y học hạt nhân",
-                        "Giải phẫu bệnh",
-                        "Y tế công cộng",
-                        "Y học dự phòng",
-                        "Dinh dưỡng",
-                        "Lão khoa",
-                        "Dược"
-                    };
+         "Nội tổng quát", "Ngoại tổng quát", "Nhi khoa", "Sản phụ khoa", "Tim mạch", "Thần kinh",
+         "Hô hấp", "Tiêu hóa", "Thận - Tiết niệu", "Huyết học - Truyền máu", "Ung bướu", "Da liễu",
+         "Tai - Mũi - Họng", "Mắt", "Răng - Hàm - Mặt", "Y học cổ truyền", "Vật lý trị liệu - Phục hồi chức năng",
+         "Tâm thần","Gây mê hồi sức","Chẩn đoán hình ảnh","Xét nghiệm","Y học hạt nhân", "Giải phẫu bệnh",
+         "Y tế công cộng", "Y học dự phòng", "Dinh dưỡng", "Lão khoa", "Dược"};
         string[] kindFindVN = { "Mã Bác Sĩ", "Tên", "Chuyên Khoa", "Số Giấy Phép", "Lịch Làm Việc" };
         string[] kindFindEng = { "Doctor ID", "First Name", "Specialty", "LicenseNumber", "Schedule" };
         string selectAll = "getALlDoctors";
@@ -95,6 +48,14 @@ namespace CMS.GUI
             {
                 btnClose.Image = Image.FromStream(ms);
             }
+
+            //thêm ảnh nền
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.img001))
+            {
+                this.BackgroundImage = Image.FromStream(ms);
+            }
+            // Làm mờ ảnh nền
+            this.BackgroundImage = UTIL.UTIL.MakeImageTransparent(this.BackgroundImage as Bitmap, 0.3f); // 0.3f là độ mờ (0.0f - 1.0f)
 
             // Thiết lập ngôn ngữ cho header DataGridView và load dữ liệu
             if (UTIL.Language.Lang.Equals("vn"))
@@ -170,7 +131,7 @@ namespace CMS.GUI
                 if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text)
                     || string.IsNullOrEmpty(txtLicenseNumber.Text) || string.IsNullOrEmpty(txtSchedule.Text))
                 {
-                    MessageBox.Show("First name, last name, License Number and Schedule is not null", "Notif", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    UTIL.UTIL.ShowMessage("First name, last name, License Number and Schedule is not null", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -182,8 +143,7 @@ namespace CMS.GUI
                     dml.Schedule1 = txtSchedule.Text.Trim();
 
                     bll.Insert(dml);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    UTIL.UTIL.ShowMessage("Added", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnReload_Click_();
                 }
             }
@@ -208,8 +168,7 @@ namespace CMS.GUI
                         dml.Schedule1 = txtSchedule.Text.Trim();
 
                         bll.Update(dml);
-                        MessageBox.Show("Chỉnh sửa thành công bac si co id \"" + txtDoctorId.Text.Trim() + "\"", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        UTIL.UTIL.ShowMessage("Edited", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnReload_Click_();
                     }
                     catch (Exception ex)
@@ -219,12 +178,12 @@ namespace CMS.GUI
                 }
                 else
                 {
-                    MessageBox.Show("Chưa co id doctor \"" + txtDoctorId.Text.Trim() + "\" trong database" + Environment.NewLine + "Chon 1 dong de chinh sua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UTIL.UTIL.ShowMessage("No ID yet", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Chưa co id doctor \"" + txtDoctorId.Text.Trim() + "\" trong database" + Environment.NewLine + "Chon 1 dong de chinh sua", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UTIL.UTIL.ShowMessage("Select a line to edit", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -237,25 +196,24 @@ namespace CMS.GUI
             {
                 try
                 {
-                    if (MessageBox.Show("Xác nhận xóa?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Delete?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         DoctorsDML dml = new DoctorsDML();
                         dml.DoctorId1 = int.Parse(txtDoctorId.Text.Trim());
 
                         bll.Delete(dml);
-                        MessageBox.Show("Xóa thành công", "Thông báo");
-                        //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
+                        UTIL.UTIL.ShowMessage("Deleted", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnReload_Click_();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("có liên kết, không thể xóa: ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UTIL.UTIL.ShowMessage("Linked, cannot be removed", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Không có \"" + txtDoctorId.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UTIL.UTIL.ShowMessage("Doctor ID not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         //
@@ -269,7 +227,7 @@ namespace CMS.GUI
                 // Kiểm tra từ khóa tìm kiếm có rỗng không
                 if (string.IsNullOrWhiteSpace(txtFindText.Text))
                 {
-                    MessageBox.Show($"Vui lòng nhập {kindFind[cboKindFind.SelectedIndex].ToLower()} để tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    UTIL.UTIL.ShowMessage("Enter the keyword you want to search", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtFindText.Focus();
                     return;
                 }
@@ -285,14 +243,14 @@ namespace CMS.GUI
                     case 0: // Tìm kiếm theo Mã Bác Sĩ (DoctorId)
                         if (!int.TryParse(searchValue, out int doctorId))
                         {
-                            MessageBox.Show("Mã bác sĩ phải là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            UTIL.UTIL.ShowMessage("Doctor code must be numeric", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             txtFindText.Focus();
                             return;
                         }
 
                         if (!bll.CheckDoctorsByDoctorId(doctorId))
                         {
-                            MessageBox.Show($"Không có bác sĩ với mã '{doctorId}' trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -302,7 +260,7 @@ namespace CMS.GUI
                     case 1: // Tìm kiếm theo Tên (FirstName)
                         if (!bll.CheckDoctorsByFirstName(searchValue))
                         {
-                            MessageBox.Show($"Không có bác sĩ nào có tên '{searchValue}' trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -312,7 +270,7 @@ namespace CMS.GUI
                     case 2: // Tìm kiếm theo Chuyên Khoa (Specialty)
                         if (!bll.CheckDoctorsBySpecialty(searchValue))
                         {
-                            MessageBox.Show($"Không có bác sĩ nào có chuyên khoa '{searchValue}' trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -322,7 +280,7 @@ namespace CMS.GUI
                     case 3: // Tìm kiếm theo Số Giấy Phép (LicenseNumber)
                         if (!bll.CheckDoctorsByLicenseNumber(searchValue))
                         {
-                            MessageBox.Show($"Không có bác sĩ nào có số giấy phép '{searchValue}' trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -332,7 +290,7 @@ namespace CMS.GUI
                     case 4: // Tìm kiếm theo Lịch Làm Việc (Schedule)
                         if (!bll.CheckDoctorsBySchedule(searchValue))
                         {
-                            MessageBox.Show($"Không có bác sĩ nào có lịch làm việc '{searchValue}' trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -340,7 +298,7 @@ namespace CMS.GUI
                         break;
 
                     default:
-                        MessageBox.Show("Tiêu chí tìm kiếm không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                 }
 
@@ -364,7 +322,7 @@ namespace CMS.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm bác sĩ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //

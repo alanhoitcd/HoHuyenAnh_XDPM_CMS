@@ -44,7 +44,13 @@ namespace CMS.GUI
             {
                 btnClose.Image = Image.FromStream(ms);
             }
-
+            //chèn ảnh cho form
+            using (MemoryStream ms = new MemoryStream(Properties.Resources.img002))
+            {
+                this.BackgroundImage = Image.FromStream(ms);
+            }
+            // Làm mờ ảnh nền
+            this.BackgroundImage = UTIL.UTIL.MakeImageTransparent(this.BackgroundImage as Bitmap, 0.3f); // 0.3f là độ mờ (0.0f - 1.0f)
             //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
             if (UTIL.Language.Lang.Equals("vn"))
             {
@@ -118,13 +124,13 @@ namespace CMS.GUI
             PatientsBLL bll = new PatientsBLL();
             if (bll.checkPatientsBySSN(txtSocialSecurityNumber.Text.Trim()))
             {
-                MessageBox.Show(txtSocialSecurityNumber.Text + " is available", "Notif");
+                UTIL.UTIL.ShowMessage("It's available", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text) || string.IsNullOrEmpty(txtSocialSecurityNumber.Text))
                 {
-                    MessageBox.Show("First name, last name and social security number is not null", "Notif", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    UTIL.UTIL.ShowMessage("First name, last name and social security number is not null", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -145,8 +151,7 @@ namespace CMS.GUI
 
                     PatientsDAL dal = new PatientsDAL();
                     dal.Insert(dml);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    UTIL.UTIL.ShowMessage("Added", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (UTIL.Language.Lang.Equals("vn"))
                     {
                         UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleVN);
@@ -213,7 +218,7 @@ namespace CMS.GUI
 
                     PatientsDAL dal = new PatientsDAL();
                     dal.Update(dml);
-                    MessageBox.Show("Chỉnh sửa thành công bệnh nhân \"" + txtPatientId.Text.Trim() + "\"", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UTIL.UTIL.ShowMessage("Edited", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
                     if (UTIL.Language.Lang.Equals("vn"))
                     {
@@ -232,7 +237,7 @@ namespace CMS.GUI
             }
             else
             {
-                MessageBox.Show("Chưa có benh nhan \"" + txtSocialSecurityNumber.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UTIL.UTIL.ShowMessage("No patients yet", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -262,38 +267,45 @@ namespace CMS.GUI
 
         private void btnDeletePatients_Click(object sender, EventArgs e)
         {
-            PatientsBLL bll = new PatientsBLL();
-            if (bll.checkPatientsByID(int.Parse(txtPatientId.Text.Trim())))
+            try
             {
-                try
+                PatientsBLL bll = new PatientsBLL();
+                if (bll.checkPatientsByID(int.Parse(txtPatientId.Text.Trim())))
                 {
-                    if (MessageBox.Show("Xác nhận xóa?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    try
                     {
-                        PatientsDML dml = new PatientsDML();
-                        dml.PatientId1 = int.Parse(txtPatientId.Text.Trim());
+                        if (MessageBox.Show("Delete?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            PatientsDML dml = new PatientsDML();
+                            dml.PatientId1 = int.Parse(txtPatientId.Text.Trim());
 
-                        PatientsDAL dal = new PatientsDAL();
-                        dal.Delete(dml);
-                        MessageBox.Show("Xóa thành công", "Thông báo");
-                        //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
-                        if (UTIL.Language.Lang.Equals("vn"))
-                        {
-                            UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleVN);
-                        }
-                        else
-                        {
-                            UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleEng);
+                            PatientsDAL dal = new PatientsDAL();
+                            dal.Delete(dml);
+                            UTIL.UTIL.ShowMessage("Deleted", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //thiết lập ngôn ngữ cho header datagridview và load dữ liệu lên form khi form load
+                            if (UTIL.Language.Lang.Equals("vn"))
+                            {
+                                UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleVN);
+                            }
+                            else
+                            {
+                                UTIL.UTIL.showDataToDataGridview(dgvManagePatients, "getALlPatients", headTitleEng);
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        UTIL.UTIL.ShowMessage("Linked, cannot be removed", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("đã ra hóa đơn thanh toán, không thể xóa: ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UTIL.UTIL.ShowMessage("No patient ID", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Không có mã benh nhan \"" + txtPatientId.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UTIL.UTIL.ShowMessage("No patient ID", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -319,7 +331,7 @@ namespace CMS.GUI
                     //kiem tra ma sinh vien null
                     if (string.IsNullOrEmpty(txtFindText.Text)) // kiem tra textbox tim kiem co nhap khong
                     {
-                        MessageBox.Show("Vui lòng nhập cccd để tìm benh nhan!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        UTIL.UTIL.ShowMessage("Enter the keyword you want to search", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     else
@@ -365,7 +377,7 @@ namespace CMS.GUI
                         }
                         else
                         {
-                            MessageBox.Show("Không có mã benh nhan \"" + txtFindText.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     break;
@@ -374,7 +386,7 @@ namespace CMS.GUI
                     //kiem tra ma sinh vien null
                     if (string.IsNullOrEmpty(txtFindText.Text)) // kiem tra textbox tim kiem co nhap khong
                     {
-                        MessageBox.Show("Vui lòng nhập ten để tìm benh nhan!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        UTIL.UTIL.ShowMessage("Enter the keyword you want to search", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     else
@@ -412,7 +424,7 @@ namespace CMS.GUI
                         }
                         else
                         {
-                            MessageBox.Show("Không có mã benh nhan co ten\"" + txtFindText.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     break;
@@ -421,7 +433,7 @@ namespace CMS.GUI
                     //kiem tra ma sinh vien null
                     if (string.IsNullOrEmpty(txtFindText.Text)) // kiem tra textbox tim kiem co nhap khong
                     {
-                        MessageBox.Show("Vui lòng nhập so phone để tìm benh nhan!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        UTIL.UTIL.ShowMessage("Enter the keyword you want to search", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     else
@@ -467,7 +479,7 @@ namespace CMS.GUI
                         }
                         else
                         {
-                            MessageBox.Show("Không có sdt cua benh nhan \"" + txtFindText.Text.Trim() + "\" trong database", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UTIL.UTIL.ShowMessage("Not found", "notif_", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     break;

@@ -96,8 +96,7 @@ namespace CMS.DAL
         {
             using (SqlConnection conn = new SqlConnection(DAL.sqlDatabase.getConnectString()))
             {
-                string query = "INSERT INTO Users (Username, PasswordHash, RoleUsers, Email, SecurityQuestion, SecurityAnswerHash, LastLogin, IsActive, CreatedDate) " +
-                               "VALUES (@Username, @PasswordHash, @RoleUsers, @Email, @SecurityQuestion, @SecurityAnswerHash, @LastLogin, @IsActive, GETDATE())";
+                string query = "INSERT INTO Users (Username, PasswordHash, RoleUsers, Email, SecurityQuestion, SecurityAnswerHash, LastLogin, IsActive, CreatedDate) VALUES (@Username, @PasswordHash, @RoleUsers, @Email, @SecurityQuestion, @SecurityAnswerHash, @LastLogin, @IsActive, GETDATE())";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = t.Username1;
                 cmd.Parameters.Add("@PasswordHash", SqlDbType.NVarChar).Value = t.PasswordHash1;

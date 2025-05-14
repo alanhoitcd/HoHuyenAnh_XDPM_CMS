@@ -325,4 +325,58 @@
   <data name="tsmiDoctorListReport" xml:space="preserve">
     <value>Báo cáo danh sách bác sĩ</value>
   </data>
+  <data name="First name, last name, License Number and Schedule is not null" xml:space="preserve">
+    <value>Tên, họ, Số giấy phép và Lịch trình không là null</value>
+  </data>
+  <data name="Added" xml:space="preserve">
+    <value>Đã thêm</value>
+  </data>
+  <data name="Edited" xml:space="preserve">
+    <value>Đã chỉnh sửa</value>
+  </data>
+  <data name="No ID yet" xml:space="preserve">
+    <value>Chưa có ID</value>
+  </data>
+  <data name="Select a line to edit" xml:space="preserve">
+    <value>Chọn một dòng để chỉnh sửa</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Đã xóa</value>
+  </data>
+  <data name="Linked, cannot be removed" xml:space="preserve">
+    <value>Có liên kết, không thể xóa</value>
+  </data>
+  <data name="Doctor ID not found" xml:space="preserve">
+    <value>Không tìm thấy ID bác sĩ</value>
+  </data>
+  <data name="Enter the keyword you want to search" xml:space="preserve">
+    <value>Nhập từ khóa bạn muốn tìm kiếm</value>
+  </data>
+  <data name="Doctor code must be numeric" xml:space="preserve">
+    <value>Mã bác sĩ phải là số</value>
+  </data>
+  <data name="Not found" xml:space="preserve">
+    <value>Không tìm thấy</value>
+  </data>
+  <data name="It's available" xml:space="preserve">
+    <value>Nó có sẵn</value>
+  </data>
+  <data name="First name, last name and social security number is not null" xml:space="preserve">
+    <value>Tên, họ và CCCD không null</value>
+  </data>
+  <data name="No patients yet" xml:space="preserve">
+    <value>Chưa có bệnh nhân</value>
+  </data>
+  <data name="No patient ID" xml:space="preserve">
+    <value>Không có ID bệnh nhân</value>
+  </data>
+  <data name="Patient ID not found" xml:space="preserve">
+    <value>Không tìm thấy ID bệnh nhân</value>
+  </data>
+  <data name="img002" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="img003" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
 </root>
