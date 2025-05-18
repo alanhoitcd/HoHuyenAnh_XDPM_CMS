@@ -1,4 +1,5 @@
-﻿using System;
+﻿//class PatientsDAL
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
@@ -11,6 +12,7 @@ namespace CMS.DAL
 {
     public class PatientsDAL
     {
+        //hàm kiểm tra bệnh nhân theo CCCD
         public int checkPatientsBySSN(string SSN)
         {
             try
@@ -32,6 +34,7 @@ namespace CMS.DAL
                 return 0;
             }
         }
+        //hàm kiểm tra bệnh nhân theo ID
         public int checkPatientsByID(int patientID)
         {
             try
@@ -53,7 +56,7 @@ namespace CMS.DAL
                 return 0;
             }
         }
-
+        //hàm kiểm tra bệnh nhân theo tên
         public int checkPatientsByFirstName(string firstName)
         {
             try
@@ -75,7 +78,7 @@ namespace CMS.DAL
                 return 0;
             }
         }
-
+        //hàm kiểm tra bệnh nhân theo số phone
         public int checkPatientsByPhoneNumber(string phoneNumber)
         {
             try
@@ -97,7 +100,7 @@ namespace CMS.DAL
                 return 0;
             }
         }
-
+        //hàm insert bệnh nhân 
         public void Insert(PatientsDML t)
         {
             using (SqlConnection connection = new SqlConnection(sqlDatabase.getConnectString()))
@@ -126,7 +129,7 @@ namespace CMS.DAL
                 }
             }
         }
-
+        //hàm select bệnh nhân theo số CCCD
         public void Update(PatientsDML t)
         {
             string query = "updatePatientBySSN";
@@ -135,15 +138,6 @@ namespace CMS.DAL
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    /*      PatientId INT IDENTITY(1,1) PRIMARY KEY,
-                            FirstName NVARCHAR(50) NOT NULL,
-                            LastName NVARCHAR(50) NOT NULL,
-                            DateOfBirth DATE NOT NULL,
-                            Gender NVARCHAR(6) NOT NULL CHECK (Gender IN ('Male', 'Female', 'Nam', 'Nữ')),
-                            PhoneNumber NVARCHAR(15) NOT NULL CHECK (PhoneNumber LIKE '[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]'),
-                            AddressPatients NVARCHAR(100) NOT NULL,
-                            SocialSecurityNumber NVARCHAR(11) NULL CHECK (SocialSecurityNumber LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' OR SocialSecurityNumber IS NULL),
-                            IsEncrypted BIT DEFAULT 0 NOT NULL*/
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@PatientId", SqlDbType.NVarChar).Value = t.PatientId1;
@@ -159,7 +153,7 @@ namespace CMS.DAL
                 }
             }
         }
-
+        //hàm delete bệnh nhân theo số ID
         public void Delete(PatientsDML t)
         {
             using (SqlConnection connection = new SqlConnection(sqlDatabase.getConnectString()))
@@ -174,7 +168,7 @@ namespace CMS.DAL
                 }
             }
         }
-
+        //hàm select bệnh nhân theo số CCCD
         public PatientsDML SelectBySSN(PatientsDML t)
         {
             PatientsDML model_ = null;
@@ -208,7 +202,7 @@ namespace CMS.DAL
             }
             return model_;
         }
-
+        //hàm select bệnh nhân theo số phone
         public PatientsDML SelectByPhoneNumber(PatientsDML t)
         {
             PatientsDML model_ = null;
@@ -242,9 +236,5 @@ namespace CMS.DAL
             }
             return model_;
         }
-
-
-
-        
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+//class frmManagePatients
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -486,7 +487,6 @@ namespace CMS.GUI
                 default:
                     break;
             }
-
         }
 
         private void btnReload_Click(object sender, EventArgs e)

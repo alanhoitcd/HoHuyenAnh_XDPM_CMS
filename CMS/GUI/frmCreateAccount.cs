@@ -1,4 +1,5 @@
-﻿using CMS.BLL;
+﻿//class frmCreateAccount
+using CMS.BLL;
 using CMS.DML;
 using CMS.UTIL;
 using System;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//class PatientsBLL
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,24 +14,26 @@ namespace CMS.BLL
     public class PatientsBLL
     {
         PatientsDAL t = new PatientsDAL();
+        //hàm kiểm tra bác sĩ theo CCCD
         public bool checkPatientsBySSN(string SSN)
         {
             return t.checkPatientsBySSN(SSN) > 0;
         }
-
+        //hàm kiểm tra bác sĩ theo ID
         public bool checkPatientsByID(int patientID)
         {
             return t.checkPatientsByID(patientID) > 0;
         }
+        //hàm kiểm tra bác sĩ theo tên
         public bool checkPatientsByFirstName(string firstName)
         {
             return t.checkPatientsByFirstName(firstName) > 0;
         }
+        //hàm kiểm tra bác sĩ theo phone
         public bool checkPatientsByPhoneNumber(string phoneNumber)
         {
             return t.checkPatientsByPhoneNumber(phoneNumber) > 0;
         }
-
         // hàm xuất báo cáo ra file
         public static void ExportReport(ReportViewer reportViewer1)
         {

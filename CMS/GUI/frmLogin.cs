@@ -1,4 +1,5 @@
-﻿using CMS.BLL;
+﻿//class frmLogin
+using CMS.BLL;
 using CMS.DML;
 using CMS.GUI;
 using CMS.UTIL;

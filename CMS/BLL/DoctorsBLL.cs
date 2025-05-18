@@ -15,99 +15,76 @@ namespace CMS.BLL
 {
     public class DoctorsBLL
     {
-        /*
-         * 2. Business Logic Layer (Lớp nghiệp vụ)
-        Mô tả: Lớp này chứa logic nghiệp vụ của ứng dụng, xử lý các quy tắc kinh doanh (business rules) 
-        và điều phối dữ liệu giữa Presentation Layer và Data Access Layer. Ví dụ: kiểm tra lịch hẹn trùng, tính toán chi phí khám bệnh.
-        Nhiệm vụ chính:
-        Xử lý logic nghiệp vụ (ví dụ: không cho đặt lịch hẹn trùng giờ).
-        Chuyển đổi dữ liệu giữa Presentation Layer và Data Access Layer.
-        Đảm bảo tính toàn vẹn và hợp lệ của dữ liệu trước khi lưu vào database.
-        Các hàm/nhiệm vụ cụ thể:
-        AddPatient(): Thêm thông tin bệnh nhân mới, kiểm tra xem mã bệnh nhân đã tồn tại chưa.
-        ScheduleAppointment(): Đặt lịch hẹn, kiểm tra trùng lịch và trả về kết quả thành công/thất bại.
-        CalculateBill(): Tính hóa đơn dựa trên dịch vụ khám bệnh.
-        GetPatientList(): Lấy danh sách bệnh nhân từ Data Access Layer để gửi lên Presentation Layer.
-        ValidateAppointment(): Kiểm tra tính hợp lệ của lịch hẹn (ví dụ: giờ làm việc của phòng khám).
-         * */
-        //DoctorsDAL t = new DoctorsDAL();
-
-        //public bool checkDoctorsByLicenseNumber(string LicenseNumber)
-        //{
-        //    return t.checkDoctorsByLicenseNumber(LicenseNumber) > 0;
-        //}
-
         private readonly DoctorsDAL t = new DoctorsDAL();
-
+        //hàm kiểm tra bác sĩ đã tồn tại chưa theo ID
         public bool CheckDoctorsByDoctorId(int doctorId)
         {
             return t.CheckDoctorsByDoctorId(doctorId) > 0;
         }
-
+        //hàm kiểm tra bác sĩ đã tồn tại chưa theo số giấy phép
         public bool CheckDoctorsByLicenseNumber(string licenseNumber)
         {
             return t.CheckDoctorsByLicenseNumber(licenseNumber) > 0;
         }
-
+        //hàm kiểm tra bác sĩ đã tồn tại chưa theo tên
         public bool CheckDoctorsByFirstName(string firstName)
         {
             return t.CheckDoctorsByFirstName(firstName) > 0;
         }
-
+        //hàm kiểm tra bác sĩ đã tồn tại chưa theo lịch làm việc
         public bool CheckDoctorsBySpecialty(string specialty)
         {
             return t.CheckDoctorsBySpecialty(specialty) > 0;
         }
-
+        //hàm kiểm tra bác sĩ đã tồn tại chưa theo chuyên khoa
         public bool CheckDoctorsBySchedule(string schedule)
         {
             return t.CheckDoctorsBySchedule(schedule) > 0;
         }
-
+        //hàm selete all bac sĩ
         public DataTable GetAllDoctors()
         {
             return t.GetAllDoctors();
         }
-
+        //hàm thêm bác sĩ
         public void Insert(DoctorsDML dml)
         {
             t.Insert(dml);
         }
-
+        //hàm cập nhật bác sĩ
         public void Update(DoctorsDML dml)
         {
             t.Update(dml);
         }
-
+        //hàm xóa bác sĩ
         public void Delete(DoctorsDML dml)
         {
             t.Delete(dml);
         }
-
+        //hàm select bác sĩ theo ID
         public DataTable GetDoctorById(int doctorId)
         {
             return t.GetDoctorById(doctorId);
         }
-
+        //hàm select bác sĩ theo tên
         public DataTable GetDoctorsByFirstName(string firstName)
         {
             return t.GetDoctorsByFirstName(firstName);
         }
-
+        //hàm select bác sĩ theo chuyên khoa 
         public DataTable GetDoctorsBySpecialty(string specialty)
         {
             return t.GetDoctorsBySpecialty(specialty);
         }
-
+        //hàm select bác sĩ theo số giấy phép
         public DataTable GetDoctorsByLicenseNumber(string licenseNumber)
         {
             return t.GetDoctorsByLicenseNumber(licenseNumber);
         }
-
+        //hàm select bác sĩ theo lịch làm việc
         public DataTable GetDoctorsBySchedule(string schedule)
         {
             return t.GetDoctorsBySchedule(schedule);
         }
-
     }
 }

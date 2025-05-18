@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmcreateaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmcreateaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmmanagedoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmmanagedoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmmanagepatients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmmanagepatients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmpatientlistreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmpatientlistreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|d:\\_duan_\\hohuyenanh_xdpm_cms\\cms\\gui\\frmvisits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE830C51-D94F-4246-AAE4-8E786A07C037}|CMS.csproj|solutionrelative:gui\\frmvisits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +38,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmVisits.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmVisits.cs",
+              "RelativeDocumentMoniker": "GUI\\frmVisits.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmVisits.cs",
+              "RelativeToolTip": "GUI\\frmVisits.cs",
+              "ViewState": "AgIAAEEBAAAAAAAAAAAswGQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:15:20.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmPatientListReport.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmPatientListReport.cs",
+              "RelativeDocumentMoniker": "GUI\\frmPatientListReport.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmPatientListReport.cs",
+              "RelativeToolTip": "GUI\\frmPatientListReport.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAowF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:16:05.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmManagePatients.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmManagePatients.cs",
+              "RelativeDocumentMoniker": "GUI\\frmManagePatients.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmManagePatients.cs",
+              "RelativeToolTip": "GUI\\frmManagePatients.cs",
+              "ViewState": "AgIAANoBAAAAAAAAAAAwwP4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:14:47.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmManageDoctors.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmManageDoctors.cs",
+              "RelativeDocumentMoniker": "GUI\\frmManageDoctors.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmManageDoctors.cs",
+              "RelativeToolTip": "GUI\\frmManageDoctors.cs",
+              "ViewState": "AgIAAJoBAAAAAAAAAAAswLEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:14:25.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmCreateAccount.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmCreateAccount.cs",
+              "RelativeDocumentMoniker": "GUI\\frmCreateAccount.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmCreateAccount.cs",
+              "RelativeToolTip": "GUI\\frmCreateAccount.cs",
+              "ViewState": "AgIAANEAAAAAAAAAAAAwwPUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:13:55.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmLogin.cs",
+              "RelativeDocumentMoniker": "GUI\\frmLogin.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmLogin.cs",
+              "RelativeToolTip": "GUI\\frmLogin.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAgwIkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:13:26.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMainForm.cs",
+              "DocumentMoniker": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmMainForm.cs",
+              "RelativeDocumentMoniker": "GUI\\frmMainForm.cs",
+              "ToolTip": "D:\\_DuAn_\\HoHuyenAnh_XDPM_CMS\\CMS\\GUI\\frmMainForm.cs",
+              "RelativeToolTip": "GUI\\frmMainForm.cs",
+              "ViewState": "AgIAAHgBAAAAAAAAAAAAAJsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-18T04:12:31.383Z",
+              "EditorCaption": ""
             }
           ]
         }

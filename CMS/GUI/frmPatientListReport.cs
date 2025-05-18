@@ -1,4 +1,5 @@
-﻿using System;
+﻿//class frmPatientListReport
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

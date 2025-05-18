@@ -1,4 +1,5 @@
-﻿using System;
+﻿//class sqlDatabase (lưu trữ chuổi kết nối sql)
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;

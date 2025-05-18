@@ -1,4 +1,5 @@
-﻿using CMS.DAL;
+﻿//class UsersBLL
+using CMS.DAL;
 using CMS.DML;
 using CMS.UTIL;
 using System;
@@ -15,11 +16,12 @@ namespace CMS.BLL
     public class UsersBLL
     {
         private readonly UsersDAL _usersDAL = new UsersDAL();
+        //hàm kiểm tra user theo username đã có chưa
         public bool selectCountUserByUserName(UsersDML dml)
         {
             return _usersDAL.selectCountUserByUserName(dml.Username1) > 0;
         }
-
+        //hàm kiểm tra trạng thái đăng nhập
         public bool LoginUser(UsersDML dml)
         {
             if (string.IsNullOrEmpty(dml.Username1) || string.IsNullOrEmpty(dml.PasswordHash1))
@@ -46,7 +48,7 @@ namespace CMS.BLL
 
             return true;
         }
-
+        //hàm kiểm tra định dạng email
         private bool IsValidEmail(string email)
         {
             if (string.IsNullOrEmpty(email))
@@ -71,7 +73,7 @@ namespace CMS.BLL
                 return false;
             }
         }
-
+        //hàm kiểm tra dữ liệu vào khi tạo tài khoản mới
         public bool RegisterUser(UsersDML t)
         {
             // Kiểm tra các trường bắt buộc
@@ -82,25 +84,21 @@ namespace CMS.BLL
             {
                 throw new ArgumentException("All required fields must be provided.");
             }
-
             // Kiểm tra định dạng Email
             if (!IsValidEmail(t.Email1))
             {
                 throw new ArgumentException("Invalid email format.");
             }
-
             // Kiểm tra xem username đã tồn tại chưa
             if (_usersDAL.selectUserByUserName(t.Username1) != null)
             {
                 throw new ArgumentException("Username already exists.");
             }
-
             // Kiểm tra xem email đã tồn tại chưa
             if (_usersDAL.GetUserByEmail(t.Email1) != null)
             {
                 throw new ArgumentException("Email already exists.");
             }
-
             // Mã hóa mật khẩu
             string hashedPassword = PasswordHelper.HashPassword(t.PasswordHash1);
             // Mã hóa câu hỏi bảo mật
@@ -108,36 +106,10 @@ namespace CMS.BLL
             // Mã hóa câu trả lời bảo mật
             string hashSecurityAnswerHash = PasswordHelper.HashPassword(t.SecurityAnswerHash1);
 
-            //// Tạo đối tượng Users_DML
-            //Users_DML user = new Users_DML
-            //{
-            //    Username1 = t.Username1,
-            //    PasswordHash1 = hashedPassword,
-            //    RoleUsers1 = t.RoleUsers1,
-            //    Email1 = t.Email1,
-            //    SecurityQuestion1 = hashSecurityQuestion,
-            //    SecurityAnswerHash1 = hashSecurityAnswerHash,
-            //    LastLogin1 = t.LastLogin1,
-            //    IsActive1 = t.IsActive1
-            //};
-
-            //// Gọi DAL để lưu vào cơ sở dữ liệu
-            //return _usersDAL.CreateUser(user);
-
-            //edit trên Users_DML t truyền vào không tạo đối tượng mới để tiết kiệm bộ nhớ
             t.PasswordHash1 = PasswordHelper.HashPassword(t.PasswordHash1);
             t.SecurityAnswerHash1 = PasswordHelper.HashPassword(t.SecurityAnswerHash1);
             return _usersDAL.CreateUser(t);
         }
-
-
-
-
-
-        //public bool checkPassword(string ten_nguoi_dung, string mat_khau)
-        //{
-        //    return Users_DAL_.checkPassword(ten_nguoi_dung, mat_khau) > 0;
-        //}
     }
 }
 

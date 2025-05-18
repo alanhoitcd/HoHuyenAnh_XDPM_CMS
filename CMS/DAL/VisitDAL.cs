@@ -1,4 +1,5 @@
-﻿using System;
+﻿//class VisitDAL
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,7 +13,7 @@ namespace CMS.DAL
     public class VisitDAL
     {
         private readonly string connectionString = sqlDatabase.getConnectString();
-
+        //hàm kiểm tra lượt khám theo ID
         public int checkVisitsByID(int VisitId)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -25,7 +26,7 @@ namespace CMS.DAL
                 return (int)cmd.ExecuteScalar();
             }
         }
-
+        //hàm thêm lượt khám mới
         public void Insert(VisitDML dml)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -36,7 +37,7 @@ namespace CMS.DAL
                     cmd.Parameters.AddWithValue("@PatientId", dml.PatientId1);
                     cmd.Parameters.AddWithValue("@DoctorId", dml.DoctorId1);
                     cmd.Parameters.AddWithValue("@VisitDate", dml.VisitDate1);
-                    cmd.Parameters.AddWithValue("@Diagnosis", dml.Diagnosis1); 
+                    cmd.Parameters.AddWithValue("@Diagnosis", dml.Diagnosis1);
                     cmd.Parameters.AddWithValue("@Prescription", dml.Prescription1);
 
                     conn.Open();
@@ -45,8 +46,7 @@ namespace CMS.DAL
             }
 
         }
-
-
+        //hàm update lượt khám theo ID
         public void update(VisitDML dml)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -67,7 +67,7 @@ namespace CMS.DAL
             }
 
         }
-
+        //hàm delete lượt khám theo ID
         public void Delete(VisitDML dml)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -81,8 +81,6 @@ namespace CMS.DAL
                     cmd.ExecuteNonQuery();
                 }
             }
-
         }
-
     }
 }
